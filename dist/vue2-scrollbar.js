@@ -644,7 +644,7 @@ exports.default = {
     styles: Object,
     speed: {
       type: Number,
-      default: 53
+      default: 40
     },
     onMaxScroll: Function
   },
@@ -683,8 +683,8 @@ exports.default = {
 
         // DOM events
         var shifted = e.shiftKey;
-        var scrollY = e.deltaY > 0 ? num : -num;
-        var scrollX = e.deltaX > 0 ? num : -num;
+        var scrollY = num * e.deltaY / 53;
+        var scrollX = num * e.deltaX / 53;
 
         // Fix Mozilla Shifted Wheel~
         if (shifted && e.deltaX == 0) scrollX = e.deltaY > 0 ? num : -num;
